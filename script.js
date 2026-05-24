@@ -1,6 +1,6 @@
 const GITHUB_USER   = "ElseIfVoid";
 const DISCORD_ID    = "1494680941862326312";
-const WEB3FORMS_KEY = "07748cfc-4b6c-4a94-8a1c-06180562f849";
+const WEB3FORMS_KEY = "75192581-bd4c-496c-a855-32aaf5b9b814";
 
 /* CLOCK */
 function updateClock() {
