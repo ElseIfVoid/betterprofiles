@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ElseIfVoid</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="scanlines"></div>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo-row">
+        <span class="logo-else">else</span><span class="logo-if">if</span><span class="logo-void">void</span>
+      </div>
+      <p class="tagline">search the void</p>
+    </header>
+
+    <!-- SEARCH BAR -->
+    <div class="search-wrap">
+      <div class="search-bar">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="repo-search" placeholder="search repos..." autocomplete="off" spellcheck="false" />
+        <span class="search-count" id="repo-count"></span>
+      </div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-pill">
+        <span class="stat-val" id="followers">—</span>
+        <span class="stat-label">followers</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill">
+        <span class="stat-val" id="repo-stat">—</span>
+        <span class="stat-label">repos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-pill">
+        <span class="stat-val" id="following">—</span>
+        <span class="stat-label">following</span>
+      </div>
+    </div>
+
+    <!-- MAIN GRID -->
+    <main class="main-grid">
+
+      <!-- LEFT: PROFILE + ACTIVITY -->
+      <aside class="sidebar">
+
+        <!-- Profile card -->
+        <div class="card profile-card">
+          <div class="profile-top">
+            <img id="avatar" class="avatar" src="" alt="avatar" />
+            <div>
+              <div class="username" id="username">loading...</div>
+              <div class="bio" id="bio">booting...</div>
+            </div>
+          </div>
+          <a id="gh-link" href="#" target="_blank" class="gh-btn">
+            view on github →
+          </a>
+        </div>
+
+        <!-- Activity card -->
+        <div class="card activity-card">
+          <div class="card-title">
+            <span>activity</span>
+            <div class="status-row">
+              <span id="status-dot" class="sdot"></span>
+              <span id="discord-status" class="slabel">—</span>
+            </div>
+          </div>
+          <div id="activity-content" class="activity-body">
+            <span class="muted">waiting...</span>
+          </div>
+        </div>
+
+        <!-- Message card -->
+        <div class="card msg-card">
+          <div class="card-title">send a message</div>
+          <div class="msg-to">→ elseifvoid@gmail.com</div>
+          <input type="text" id="msg-name" class="field" placeholder="your name" />
+          <input type="text" id="msg-subject" class="field" placeholder="subject" />
+          <textarea id="msg-body" class="field textarea" placeholder="message..." rows="4"></textarea>
+          <button id="send-btn" class="send-btn">send →</button>
+          <div id="msg-feedback" class="feedback"></div>
+        </div>
+
+      </aside>
+
+      <!-- RIGHT: REPOS -->
+      <section class="repos-section">
+        <div class="card-title repos-title">repositories</div>
+        <div id="repo-container" class="repo-list">
+          <span class="muted">loading repos...</span>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <span id="clock">--:--</span>
+      &nbsp;·&nbsp;
+      elseifvoid.github.io
+    </footer>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

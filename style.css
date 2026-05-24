@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap');
+
+:root {
+  --green: #00ff41;
+  --green-dim: #00c032;
+  --green-faint: rgba(0,255,65,.07);
+  --bg: #080c08;
+  --bg2: #0d120d;
+  --border: rgba(0,255,65,.18);
+  --border-soft: rgba(0,255,65,.08);
+  --text: #c8ffc8;
+  --muted: rgba(200,255,200,.4);
+  --font: 'Share Tech Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+}
+
+/* scanlines */
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,.12) 0px,
+    rgba(0,0,0,.12) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* PAGE */
+.page {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 20px 40px;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-row {
+  font-family: 'VT323', monospace;
+  font-size: 72px;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.logo-else { color: var(--muted); }
+.logo-if   { color: var(--green); text-shadow: 0 0 18px var(--green); }
+.logo-void { color: var(--muted); }
+
+.tagline {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* SEARCH */
+.search-wrap {
+  max-width: 580px;
+  margin: 0 auto 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 10px 16px;
+  background: var(--bg2);
+  transition: border-color .2s;
+}
+
+.search-bar:focus-within {
+  border-color: var(--green);
+  box-shadow: 0 0 12px rgba(0,255,65,.1);
+}
+
+.search-icon {
+  color: var(--green);
+  font-size: 20px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  font-family: var(--font);
+  font-size: 15px;
+  color: var(--text);
+  caret-color: var(--green);
+}
+
+.search-bar input::placeholder { color: var(--muted); }
+
+.search-count {
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* STATS ROW */
+.stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.stat-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.stat-val {
+  font-family: 'VT323', monospace;
+  font-size: 32px;
+  color: var(--green);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--border);
+}
+
+/* MAIN GRID */
+.main-grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* CARDS */
+.card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* PROFILE */
+.profile-top {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.username {
+  font-size: 16px;
+  color: var(--text);
+  font-family: 'VT323', monospace;
+  line-height: 1.2;
+}
+
+.bio {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+
+.gh-btn {
+  display: block;
+  text-align: center;
+  padding: 7px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--green);
+  text-decoration: none;
+  font-size: 12px;
+  transition: background .15s, border-color .15s;
+}
+
+.gh-btn:hover {
+  background: var(--green-faint);
+  border-color: var(--green);
+}
+
+/* ACTIVITY */
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sdot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #444;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.slabel {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.activity-body {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.activity-name {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.activity-detail {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.activity-state {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+/* MESSAGE */
+.msg-to {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.field {
+  display: block;
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 2px;
+  padding: 8px 10px;
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  outline: none;
+  margin-bottom: 8px;
+  transition: border-color .15s;
+  caret-color: var(--green);
+  resize: none;
+}
+
+.field:focus {
+  border-color: var(--green);
+}
+
+.field::placeholder { color: var(--muted); }
+
+.textarea { min-height: 80px; }
+
+.send-btn {
+  width: 100%;
+  padding: 9px;
+  background: none;
+  border: 1px solid var(--green);
+  border-radius: 2px;
+  color: var(--green);
+  font-family: var(--font);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background .15s;
+}
+
+.send-btn:hover { background: var(--green-faint); }
+.send-btn:disabled { opacity: .5; cursor: not-allowed; }
+
+.feedback {
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 16px;
+  color: var(--green);
+}
+
+.feedback.error { color: #ff4444; }
+
+/* REPOS */
+.repos-title {
+  margin-bottom: 14px;
+}
+
+.repo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.repo-card {
+  display: block;
+  background: var(--bg2);
+  border: 1px solid var(--border-soft);
+  border-radius: 2px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color .15s, background .15s;
+}
+
+.repo-card:hover {
+  border-color: var(--green);
+  background: var(--green-faint);
+}
+
+.repo-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.repo-name {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.repo-lang {
+  font-size: 10px;
+  color: var(--green);
+  border: 1px solid var(--border);
+  padding: 1px 7px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.repo-desc {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.repo-meta {
+  display: flex;
+  gap: 14px;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* UTILS */
+.muted { color: var(--muted); }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    order: 2;
+  }
+
+  .repos-section {
+    order: 1;
+  }
+
+  .logo-row {
+    font-size: 52px;
+  }
+
+  .stat-pill {
+    padding: 0 14px;
+  }
+}
